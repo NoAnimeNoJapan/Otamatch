@@ -1,0 +1,2 @@
+class CircleJoin < ApplicationRecord
+end
