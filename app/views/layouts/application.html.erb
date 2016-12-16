@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Otamatch</title>
+    <title>オタマッチ</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,17 @@
   </head>
 
   <body>
+    <header class="navbar">
+      <div class="container">
+        <div class="sub-ttl">オタクのためのソーシャルマッチングサイト</div>
+	    <div id="logo">オタマッチ</div>
+	    <ul class="header-right">
+	      <li><%= link_to "トップ", top_path %></li>
+	      <li>ログイン</li>
+	      <li>ログアウト</li>
+	    </ul>
+	  </div>
+	</header>
     <%= yield %>
   </body>
 </html>
