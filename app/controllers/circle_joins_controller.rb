@@ -3,7 +3,7 @@ class CircleJoinsController < ApplicationController
 
 	def create
         @circle = Circle.find(params[:circle_id])
-        @circle_join = current_user.circle_join.build(post: @circle)
+        @circle_join = current_user.circle_join.build(circle: @circle)
 
         if @circle_join.save
           redirect_to circles_url, notice: "参加する"

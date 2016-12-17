@@ -10,7 +10,7 @@ class CirclesController < ApplicationController
 	def create
 		@pcircle = Circle.new
 
-		if @post.save
+		if @circle.save
         format.html { redirect_to @circle, notice: 'Circle was successfully created.' }
         format.json { render :show, status: :created, location: @circle }
       else
@@ -29,7 +29,7 @@ class CirclesController < ApplicationController
 
 	def update
 		respond_to do |format|
-      if @circle.update(post_params)
+      if @circle.update(circle_params)
         format.html { redirect_to @circle, notice: 'Circle was successfully updated.' }
         format.json { render :show, status: :ok, location: @circle }
       else
@@ -47,7 +47,7 @@ class CirclesController < ApplicationController
     end
 	end
 
-	def post_params
+	def circle_params
       params.require(:circle).permit(:title, :body, :user_id, :image, )
     end
 
