@@ -1,0 +1,24 @@
+ <tbody>
+      <% @comments.each do |comment| %>
+        <tr>
+          <% if comment.image? %>
+            <td><%=  image_tag comment.image.url%></td>
+          <% else %>
+            <td><%= image_tag 'noimage.gif' %></td>
+          <% end %>
+
+          <td><%= link_to comment.title, comment_path(comment)%></td>
+          <td><%= comment.body %></td>
+          <td><%= render 'comments/tag_list', tag_list: comment.interest_list %></td>
+
+          <td>
+            <% if comment.joined_by? current_user %>
+              <%= link_to "コメントを消す", comment_joins_path(comment), method: :delete %>
+            <% else %>
+              <%= link_to "コメントをする", comment_joins_path(comment), method: :comment %>
+            <% end %>
+          </td>
+          
+        </tr>
+      <% end %>
+    </tbody>

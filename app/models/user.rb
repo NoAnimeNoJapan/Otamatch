@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :circle_joins, dependent: :destroy
   has_many :circles
+  has_many :events
+  has_many :comments
 end

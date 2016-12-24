@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>    
+
+
+<tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <% if event.image? %>
+            <td><%=  image_tag event.image.url%></td>
+          <% else %>
+            <td><%= image_tag 'noimage.gif' %></td>
+          <% end %>    
+
+          <td><%= link_to event.title, event_path(event)%></td>
+          <td><%= event.body %></td>
+          <td><%= render 'events/tag_list', tag_list: event.interest_list %></td>
+
+          <td>
+            <% if event.joined_by? current_user %>
+              <%= link_to "参加解除", event_joins_path(event), method: :delete %>
+            <% else %>
+              <%= link_to "参加する", event_favorites_path(event), method: :event %>
+            <% end %>
+          </td>
+
+        </tr>
+      <% end %>
+    </tbody>
