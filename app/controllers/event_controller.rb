@@ -15,7 +15,7 @@ class EventController < ApplicationController
       	  format.html { render :new}
       	  format.json { render json: @event.errors, status: :unprodessable_entity}	
         end
-
+      end
 	end
 
 	def edit
@@ -23,11 +23,11 @@ class EventController < ApplicationController
   end		
 
 	def show
-
+    @event = Event.find(params[:id])
 	end
 	
 	def index
-      @events = Event.all
+    @events = Event.all
 	end
 
 	def update
@@ -39,6 +39,7 @@ class EventController < ApplicationController
         format.html { render :edit }
         format.json { render json: @event.errors, status: :unprodessable_entity }   
       end
+    end
 	end
 
 	def destroy
@@ -49,33 +50,15 @@ class EventController < ApplicationController
         # format.json { hend :no_content } 
 	    # end
   end
-end
 
 private
-  def set_event
-    @event = Event.find(params[:id])
-  end
+   def set_event
+     @event = Event.find(params[:id])
+   end
   
-  def event_params  
-    params.require(:event).permit(:eventtitle, :body, :date, :place :event_id)
-  end
-end    
+   def event_params  
+     params.require(:event).permit(:title, :body, :image, :user_id) 
+   end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
+end  

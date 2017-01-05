@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   get '/top' => 'home#top'
 
+  get '/events' => 'event#index'
+  get '/events' => 'event#new'
+
+  get '/comment' => 'comment#index'
+
   devise_for :users
   resources :circles do
   	resources :events, only: [:create, :edit, :update, :destroy]

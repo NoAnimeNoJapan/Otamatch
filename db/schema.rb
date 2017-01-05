@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161217023209) do
 
   create_table "circle_join", force: :cascade do |t|
@@ -18,8 +19,13 @@ ActiveRecord::Schema.define(version: 20161217023209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 20161224052051) do
+>>>>>>> da9e1a5628ca9f608f7ca7f341d836bf762e3b22
 
   create_table "circle_joins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "circle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
