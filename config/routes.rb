@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/top' => 'home#top'
+  root 'home#top'
 
   get '/events' => 'event#index'
   get '/events' => 'event#new'
