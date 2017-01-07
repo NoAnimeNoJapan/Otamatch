@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'boards/new'
+
+  get 'boards/index'
+
+  get 'boards/show'
+
+  get 'boards/edit'
+
   root 'home#top'
 
   get '/events' => 'event#index'
