@@ -6,15 +6,11 @@ class CommentController < ApplicationController
 
 	def create
       @comment = Comment.new(comment_params)
+      
+      @comment.user_id = current_user.id
 
-      respond_to do |format|
-      	if @comment.save
-      	  format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-      	  format.json { render :show, status: :created, location: @comment }
-      	else
-      	  format.html { render :new}
-      	  format.json { render json: @comment.errors, status: :unprodessable_entity}	
-        end
+      @comment.save
+      redirect_to @comment    
 	end
 
 	def edit
@@ -29,15 +25,9 @@ class CommentController < ApplicationController
       @comments = Comment.all
 	end
 
-	def update
-	  respond_to do |format|
-	    if @comment.update(comment_params)
-          format.html { redirect_to @comment, notice: 'comment was successfully updated' }
-          format.json { render :show, status: :ok, location: @comment }
-        else
-          format.html { render :edit }
-          format.json { render json: @comment.errors, status: :unprodessable_entity }		 
-	    end	     
+	def update 
+	    @comment.update(params[:id])
+        redirect_to @comment 
 	end
 
 	def destroy
