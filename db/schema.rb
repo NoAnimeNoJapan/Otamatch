@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107071136) do
+ActiveRecord::Schema.define(version: 20170114105729) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "title"
     t.text     "supplement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "editor"
   end
 
   create_table "circle_join", force: :cascade do |t|

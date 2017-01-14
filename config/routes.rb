@@ -1,18 +1,14 @@
 Rails.application.routes.draw do
-  get 'boards/new'
-
-  get 'boards/index'
-
-  get 'boards/show'
-
-  get 'boards/edit'
 
   root 'home#top'
+
+  resources :boards do
+  	resources :comments, only: [:create, :destroy]
+  end
 
   get '/events' => 'event#index'
   get '/events' => 'event#new'
 
-  get '/comment' => 'comment#index'
 
   devise_for :users
   resources :circles do
