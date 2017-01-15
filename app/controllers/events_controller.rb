@@ -1,11 +1,12 @@
-class EventController < ApplicationController
+class EventsController < ApplicationController
+
 
 	def new
       @event = Event.new		
 	end
 
 	def create
-      @event = Event.new(event_params)
+      @event= Event.new(event_params)
 
       @event.user_id = current_user.id
 
@@ -49,4 +50,5 @@ private
    end
 
 
-end  
+
+end

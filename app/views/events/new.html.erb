@@ -1,0 +1,29 @@
+<%= form_for(@event) do |f| %>
+
+	<h1>イベント作成</h1>
+
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+
+	<div>
+		<%= f.label :body %>
+		<%= f.text_area :body %>
+	</div>
+
+	<div>
+		<%= f.label :image %>
+		<%= f.file_field :image %> 
+	</div>
+
+	<div>
+	  <%= f.label :user_id %><br>
+	　    ユーザーID
+	  <%= f.collection_select :user_id, User.all, :id, :id%>
+	</div>
+
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>	

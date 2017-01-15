@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
-  get '/top' => 'home#top'
+  # get 'boards/new'
 
-  get '/events' => 'event#index'
-  get '/events' => 'event#new'
+  # get 'boards/index'
 
+  # get 'boards/show'
+
+  # get 'boards/edit'
+
+  root 'home#top'
+
+  # get '/events' => 'event#index'
+  # get '/events' => 'event#new'
+  resources :events
+  
   get '/comment' => 'comment#index'
 
   devise_for :users
-  resources :circles do
-  	resources :events, only: [:create, :edit, :update, :destroy]
-  end
+  resources :circles
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

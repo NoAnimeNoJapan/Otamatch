@@ -14,9 +14,10 @@
         <div class="sub-ttl">オタクのためのソーシャルマッチングサイト</div>
 	    <div id="logo">オタマッチ</div>
 	    <ul class="header-right">
-	      <li><%= link_to "トップ", top_path %></li>
-	      <li>ログイン</li>
-	      <li>ログアウト</li>
+	      <li><%= link_to "トップ", root_path %></li>
+	      <li><%= link_to "ログイン", new_user_session_path %></li>
+	      <li><%= link_to "会員登録", new_user_registration_path %></li>
+	      <li><%= link_to "ログアウト", destroy_user_session_path %></li>
 	    </ul>
 	  </div>
 	</header>
