@@ -1,5 +1,4 @@
 class BoardsController < ApplicationController
-<<<<<<< HEAD
   before_action :set_board, only: [:edit, :update, :destroy]
 
   def new
@@ -12,6 +11,7 @@ class BoardsController < ApplicationController
   		redirect_to board_url(@board)
   	else
   		render :new
+  	end
   end
 
   def index
@@ -21,20 +21,10 @@ class BoardsController < ApplicationController
   def show
   	@board = Board.includes(:comments).find(params[:id])
   	@comment = Comment.new
-=======
-  def new
-  end
-
-  def index
-  end
-
-  def show
->>>>>>> 7e8bf882d7505322fe1f9ed120b2e3b5f8cea0f6
   end
 
   def edit
   end
-<<<<<<< HEAD
 
   def update
   	if @board.update_attributes(params_board)
@@ -60,6 +50,4 @@ class BoardsController < ApplicationController
   	params.require(:board).permit(:title, :editor, :body)
   end
 
-=======
->>>>>>> 7e8bf882d7505322fe1f9ed120b2e3b5f8cea0f6
 end
