@@ -9,7 +9,6 @@ class CommentController < ApplicationController
 
       @comment.user_id = current_user.id
 
-<<<<<<< HEAD
       respond_to do |format|
       	if @comment.save
       	  format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
@@ -18,10 +17,7 @@ class CommentController < ApplicationController
       	  format.html { render :new}
       	  format.json { render json: @comment.errors, status: :unprodessable_entity}
         end
-=======
-      @comment.save
-      redirect_to @comment    
->>>>>>> 572db9716e658c397e236d3b1022d7fa68903729
+      end
 	end
 
 	def edit
@@ -36,7 +32,6 @@ class CommentController < ApplicationController
       @comments = Comment.all
 	end
 
-<<<<<<< HEAD
 	def update
 	  respond_to do |format|
 	    if @comment.update(comment_params)
@@ -46,11 +41,7 @@ class CommentController < ApplicationController
           format.html { render :edit }
           format.json { render json: @comment.errors, status: :unprodessable_entity }
 	    end
-=======
-	def update 
-	    @comment.update(params[:id])
-        redirect_to @comment 
->>>>>>> 572db9716e658c397e236d3b1022d7fa68903729
+    end
 	end
 
 	def destroy
