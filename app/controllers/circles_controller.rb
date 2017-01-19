@@ -8,15 +8,9 @@ class CirclesController < ApplicationController
 	end
 
 	def create
-		@pcircle = Circle.new
+		@circle = Circle.new
 
-		if @circle.save
-        format.html { redirect_to @circle, notice: 'Circle was successfully created.' }
-        format.json { render :show, status: :created, location: @circle }
-      else
-        format.html { render :new }
-        format.json { render json: @circle.errors, status: :unprocessable_entity }
-      end
+		
 	end
 
 	def index
