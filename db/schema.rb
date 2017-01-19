@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170114064345) do
-=======
-ActiveRecord::Schema.define(version: 20170114105729) do
->>>>>>> feature/board_model
+ActiveRecord::Schema.define(version: 20170119130046) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "title"
@@ -24,9 +20,14 @@ ActiveRecord::Schema.define(version: 20170114105729) do
     t.string   "editor"
   end
 
-  create_table "circle_joins", force: :cascade do |t|
+  create_table "circle_join", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "circle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "circle_joins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,9 +42,11 @@ ActiveRecord::Schema.define(version: 20170114105729) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.text     "body"
+    t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
   end
 
   create_table "event_joins", force: :cascade do |t|
