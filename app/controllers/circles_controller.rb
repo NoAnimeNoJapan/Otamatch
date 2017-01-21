@@ -12,6 +12,7 @@ class CirclesController < ApplicationController
     @circle.user_id = current_user.id
 		@circle.save
     redirect_to @circle
+
 	end
 
   def show
@@ -19,9 +20,18 @@ class CirclesController < ApplicationController
   end
 
 	def index
-		@circles = Circle.all
+
+    @search = Circle.search(params[:q])
+    @circles = @search.result(distinct:true)#search(params[:q]).page(params[:page]).per(10)
 	end
+
+  def show
+    @circle = Circle.find(params[:id])
+  end
+
+		
   
+
 	def edit
 
 	end

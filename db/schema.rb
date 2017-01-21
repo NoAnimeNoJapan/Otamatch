@@ -20,12 +20,6 @@ ActiveRecord::Schema.define(version: 20170119130046) do
     t.string   "editor"
   end
 
-  create_table "circels", force: :cascade do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "circle_joins", force: :cascade do |t|
     t.integer  "user_id"

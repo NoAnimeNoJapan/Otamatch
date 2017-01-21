@@ -1,15 +1,30 @@
-<html>
+<!-- <link rel="stylesheet" href="events.css" type="text/css"> -->
 
- <head>
-   <link rel="stylesheet" href="event.css" type="text/css">
- </head>
+<head>
+<style type="text/css">
+nav{
+  width: 150%;
+  height: 800px;
+  background-image:url(/images/event.3.jpg)
+}
 
- <body>
+h2{
+  font-size: 30px;
+}
 
-   <p class="event-image">
+p{
+  font-size: 20px;
+}
 
-   </p>   
+</style>
+</head>
 
- </body>
 
-</html> 
+<nav>
+
+<h2>イベント名</h2>
+ <p><%= @event.title  %></p>
+<h2>内容</h2>
+ <p><%= @event.body %></p>
+
+</nav>

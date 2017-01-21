@@ -6,39 +6,43 @@ class EventsController < ApplicationController
 	end
 
 	def create
-      @event= Event.new(event_params)
+      @event = Event.new(event_params)
 
       @event.user_id = current_user.id
 
       @event.save
-      redirect_to @event
+      redirect_to events_path
 	end
 
 	def edit
 
   end		
 
-	def show
+  def show
     @event = Event.find(params[:id])
-	end
+  end   
 	
 	def index
-    @events = Event.all
+    # @events = Event.all
+    @search = Event.search(params[:q])
+    @events = @search.result(distinct:true)
 	end
 
 	def update
-      @event.update(parmas[:id])
-        redirect_to @event
+    @event.update(params[:id])
+      redirect_to @event
 	end
 
 	def destroy
-      @event.destroy
+    @event.destroy
        # respond_to do |format|
-        redirect_to events_url
+    redirect_to events_url
         # notice: 'Event was successfully destroyed.' }
         # format.json { hend :no_content } 
 	    # end
   end
+
+
 
 private
    def set_event
