@@ -13,9 +13,19 @@ class CirclesController < ApplicationController
 		@circle.save
     redirect_to '/circles'
  
+		@circle = Circle.new
+    @circle.user_id = current_user.id
+		@circle.save
+    redirect_to @circle
+
 	end
 
+  def show
+    # @circles = Circle.find(params[:id])
+  end
+
 	def index
+
     @search = Circle.search(params[:q])
     @circles = @search.result(distinct:true)#search(params[:q]).page(params[:page]).per(10)
 	end
@@ -24,8 +34,11 @@ class CirclesController < ApplicationController
     @circle = Circle.find(params[:id])
   end
 
-	def edit
 		
+  
+
+	def edit
+
 	end
 
 	def update
@@ -48,7 +61,9 @@ class CirclesController < ApplicationController
     end
 	end
 
-	def circle_params
+  private
+
+	  def circle_params
       params.require(:circle).permit(:title, :body, :user_id, :image, )
     end
 
@@ -57,5 +72,9 @@ class CirclesController < ApplicationController
       if current_user.id != circle.user.id
        redirect_to root_path
       end
+    end
+
+    def set_circle
+      @circle = Circle.find(params[:id])
     end
 end

@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114064345) do
+ActiveRecord::Schema.define(version: 20170119130046) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "title"
     t.text     "supplement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "editor"
   end
 
   create_table "circle_joins", force: :cascade do |t|
@@ -36,9 +37,11 @@ ActiveRecord::Schema.define(version: 20170114064345) do
   end
 
   create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.text     "body"
+    t.integer  "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
   end
 
   create_table "event_joins", force: :cascade do |t|

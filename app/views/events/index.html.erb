@@ -1,9 +1,37 @@
+<head>
+<style type="text/css">
+nav{
+  width: 150%;
+  height: 1000px;
+  margin: 0 auto;
+  background-image:url(/images/event.2.jpg)
+}
+
+p{
+  font-size: 40px;
+  color: white;
+}
+
+span{
+  font-size: 30px;
+}
+
+.title{
+  font-size: 20px;
+  color: red;
+}
+
+</style>
+</head>
+
 <p id="notice"><%= notice %></p>
 
 <%= search_form_for(@search) do |f| %>
 
+<p class="title">
 <%= f.label :title_start,"タイトル" %>
 <%= f.search_field :title_start %>
+</p>
 
 <%= f.label :bpdy_cont,"本文" %>
 <%= f.search_field :body_cont %>
@@ -12,8 +40,7 @@
 <%= f.submit %>
 <% end %>
 
-
-
+<nav>
 <% @events.each do |event|%>
      <p>イベント名</p>
 
@@ -22,6 +49,7 @@
     </span> 
 
 <% end %>    
+</nav>
 
 
 

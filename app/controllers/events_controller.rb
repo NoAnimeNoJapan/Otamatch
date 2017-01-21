@@ -11,7 +11,7 @@ class EventsController < ApplicationController
       @event.user_id = current_user.id
 
       @event.save
-      redirect_to 'events'
+      redirect_to events_path
 	end
 
 	def edit
@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   end   
 	
 	def index
-    @events = Event.all
+    # @events = Event.all
     @search = Event.search(params[:q])
     @events = @search.result(distinct:true)
 	end
