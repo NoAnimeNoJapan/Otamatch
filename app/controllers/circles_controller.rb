@@ -9,11 +9,6 @@ class CirclesController < ApplicationController
 
 	def create
 		@circle = Circle.new(circle_params)
-
-		@circle.save
-    redirect_to '/circles'
- 
-		@circle = Circle.new
     @circle.user_id = current_user.id
 		@circle.save
     redirect_to @circle

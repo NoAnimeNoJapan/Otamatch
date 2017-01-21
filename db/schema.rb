@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170119130046) do
     t.string   "editor"
   end
 
+
   create_table "circle_joins", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "circle_id"
