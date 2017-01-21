@@ -1,39 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>サークル作成</title>
-	<link rel="stylesheet" href="app/assets/stylesheets/circles.scss">
-</head>
+
 
 
 <%= form_for(@circle) do |f| %>
-
+<div class="c-container">
 	<h1>サークル作成</h1>
 
-	<div>
-		<%= f.label :title %>
-		<%= f.title_field :title %>
+	<div class="c-box">
+		<p class="c-font">タイトル</p>
+		<%= f.text_field :title %>
 	</div>
 
-	<div>
-		<%= f.label :body %>
+	<div class="c-box">
+		<p class="c-font">内容</p>
 		<%= f.text_area :body %>
 	</div>
 
-	<div>
-		<%= f.label :image %>
+	<div class="c-box">
+		<p class="c-font">画像</p>
 		<%= f.file_field :image %> 
 	</div>
 
-	<div>
-	  <%= f.label :user_id %><br>
-	　    ユーザーID
-	  <%= f.collection_select :user_id, User.all, :id, :id%>
+	<div class="c-box">
+		<%= f.submit value="作成"%>
 	</div>
-
-	<div>
-		<%= f.submit %>
-	</div>
+</div>	
 <% end %>	
-</html>

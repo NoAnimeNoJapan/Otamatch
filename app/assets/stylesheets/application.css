@@ -34,7 +34,19 @@ a:hover {
   padding-left: 15px;
   padding-right: 15px;
 }
+/*circle.css*/
+.c-container{
+  background-image: url();
+}
 
+.c-box{
+  margin: 20px;
+}
+
+.c-font{
+  font-size: 20px;
+  font-weight: bold;
+}
 /* フォント ================================ */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -98,6 +110,11 @@ p {
   padding: 0 18px;
   float: left;
   color: white;
+}
+
+.wrapper {
+  width: 980px;
+  padding-top: 50px;
 }
 
 /* フッター ================================ */

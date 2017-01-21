@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224052051) do
+ActiveRecord::Schema.define(version: 20170114105729) do
+
+  create_table "boards", force: :cascade do |t|
+    t.string   "title"
+    t.text     "supplement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "editor"
+  end
+
+  create_table "circels", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "circle_joins", force: :cascade do |t|
     t.integer  "user_id"
@@ -43,6 +58,8 @@ ActiveRecord::Schema.define(version: 20161224052051) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.string   "title"
+    t.string   "body"
   end
 
   create_table "users", force: :cascade do |t|

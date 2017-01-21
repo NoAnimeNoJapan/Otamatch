@@ -9,16 +9,21 @@ class CirclesController < ApplicationController
 
 	def create
 		@circle = Circle.new
-
-		
+    @circle.user_id = current_user.id
+		@circle.save
+    redirect_to @circle
 	end
+
+  def show
+    # @circles = Circle.find(params[:id])
+  end
 
 	def index
-		@circles = Post.page(params[:page]).per(10)
+		@circles = Circle.all
 	end
-
+  
 	def edit
-		
+
 	end
 
 	def update
@@ -41,7 +46,9 @@ class CirclesController < ApplicationController
     end
 	end
 
-	def circle_params
+  private
+
+	  def circle_params
       params.require(:circle).permit(:title, :body, :user_id, :image, )
     end
 
@@ -50,5 +57,9 @@ class CirclesController < ApplicationController
       if current_user.id != circle.user.id
        redirect_to root_path
       end
+    end
+
+    def set_circle
+      @circle = Circle.find(params[:id])
     end
 end

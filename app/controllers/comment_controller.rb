@@ -1,11 +1,14 @@
 class CommentController < ApplicationController
-   
-    def new
-      @comment = Comment.new		
-	end
+
+  def new
+    @comment = Comment.new
+  end
+
 
 	def create
       @comment = Comment.new(comment_params)
+
+      @comment.user_id = current_user.id
 
       respond_to do |format|
       	if @comment.save
@@ -13,18 +16,18 @@ class CommentController < ApplicationController
       	  format.json { render :show, status: :created, location: @comment }
       	else
       	  format.html { render :new}
-      	  format.json { render json: @comment.errors, status: :unprodessable_entity}	
+      	  format.json { render json: @comment.errors, status: :unprodessable_entity}
         end
+      end
 	end
 
 	def edit
+  end
 
-    end		
 
 	def show
-
 	end
-	
+
 	def index
       @comments = Comment.all
 	end
@@ -34,30 +37,33 @@ class CommentController < ApplicationController
 	    if @comment.update(comment_params)
           format.html { redirect_to @comment, notice: 'comment was successfully updated' }
           format.json { render :show, status: :ok, location: @comment }
-        else
+      else
           format.html { render :edit }
           format.json { render json: @comment.errors, status: :unprodessable_entity }		 
-	    end	     
+	    end
+    end
 	end
+
 
 	def destroy
       @comment.destroy
-       # respond_to do |format|
-        redirect_to comments_url 
-        # notice: 'Comment was successfully destroyed.' }
-        # format.json { hend :no_content }  
-	end	
+      # respond_to do |format|
+      redirect_to comments_url
+      # notice: 'Comment was successfully destroyed.' }
+      # format.json { hend :no_content }
+	end
+
+
+
+
+  private
+    def set_comment
+    	@comment = Comment.find(params[:id])
+    end
+
+    def comment_params
+      params.require(:comment).permit(:body, :subject, :circle_id, :event_id)
+    end
 
 end
 
-
-private
-  def set_comment
-  	@comment = Comment.find(params[:id])
-  end
-  
-  def comment_params
-    params.require(:comment).permit(:body, :subject :circle_id :event_id)
-  end
-end    	
-  
