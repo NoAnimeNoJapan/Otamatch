@@ -8,7 +8,7 @@ class CirclesController < ApplicationController
 	end
 
 	def create
-		@circle = Circle.new
+		@circle = Circle.new(circle_params)
     @circle.user_id = current_user.id
 		@circle.save
     redirect_to @circle
