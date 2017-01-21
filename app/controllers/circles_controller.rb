@@ -8,20 +8,21 @@ class CirclesController < ApplicationController
 	end
 
 	def create
-		@pcircle = Circle.new
+		@circle = Circle.new(circle_params)
 
-		if @circle.save
-        format.html { redirect_to @circle, notice: 'Circle was successfully created.' }
-        format.json { render :show, status: :created, location: @circle }
-      else
-        format.html { render :new }
-        format.json { render json: @circle.errors, status: :unprocessable_entity }
-      end
+		@circle.save
+    redirect_to '/circles'
+ 
 	end
 
 	def index
-		@circles = Post.page(params[:page]).per(10)
+    @search = Circle.search(params[:q])
+    @circles = @search.result(distinct:true)#search(params[:q]).page(params[:page]).per(10)
 	end
+
+  def show
+    @circle = Circle.find(params[:id])
+  end
 
 	def edit
 		

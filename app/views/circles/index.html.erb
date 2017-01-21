@@ -1,4 +1,18 @@
+<%= search_form_for @search do |f|  %>
 
+<%#= f.label :title_or_body_cont,"サークル名" %>
+
+<%= f.search_field :title_or_body_cont %>
+
+<%= f.submit %>
+
+<% end %>
+
+<% @circles.each do |circle| %>
+
+<%= circle.title %><br>
+
+<% end %>
 
 
 

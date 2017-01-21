@@ -1,10 +1,10 @@
-<%= form_for(circle) do |f| %>
+<%= form_for(@circle) do |f| %>
 
 	<h1>サークル作成</h1>
 
 	<div>
 		<%= f.label :title %>
-		<%= f.title_field :title %>
+		<%= f.text_field :title %>
 	</div>
 
 	<div>

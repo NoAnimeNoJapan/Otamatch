@@ -1,29 +1,43 @@
+<head>
+<style type="text/css">
+nav{
+	width: 140%;
+	height: 800px;
+	background-image:url(/images/event.1.jpg)
+}
+
+</style>
+</head>
+
+<!-- <img src="/public/images/Otamatch.png" /> -->
+<nav>
+<!-- <div style="background-image:url(/images/Otamatch.event.1.png")" /> -->
+
 <%= form_for(@event) do |f| %>
+  
+  <h1>イベント作成</h1>
 
-	<h1>イベント作成</h1>
-
-	<div>
+	<div class="e-title">
 		<%= f.label :title %>
 		<%= f.text_field :title %>
 	</div>
 
-	<div>
+	<div class="e-body">
 		<%= f.label :body %>
 		<%= f.text_area :body %>
 	</div>
 
-	<div>
+	<div class="e-image">
 		<%= f.label :image %>
 		<%= f.file_field :image %> 
 	</div>
 
-	<div>
-	  <%= f.label :user_id %><br>
-	　    ユーザーID
-	  <%= f.collection_select :user_id, User.all, :id, :id%>
-	</div>
+
 
 	<div>
 		<%= f.submit %>
 	</div>
-<% end %>	
+        <% end %>	
+       
+</div>
+</nav>
