@@ -1,21 +1,9 @@
-<<<<<<< HEAD
-<%= form_for(@circle) do |f| %>
-=======
->>>>>>> f9afa7c3c0155df792aca6dc3de63c4de5d2dbbf
-
-
-
 <%= form_for(@circle) do |f| %>
 <div class="c-container">
 	<h1>サークル作成</h1>
 
-<<<<<<< HEAD
-	<div>
-		<%= f.label :title %>
-=======
 	<div class="c-box">
 		<p class="c-font">タイトル</p>
->>>>>>> f9afa7c3c0155df792aca6dc3de63c4de5d2dbbf
 		<%= f.text_field :title %>
 	</div>
 
@@ -26,11 +14,11 @@
 
 	<div class="c-box">
 		<p class="c-font">画像</p>
-		<%= f.file_field :image %> 
+		<%= f.file_field :image %>
 	</div>
 
 	<div class="c-box">
 		<%= f.submit value="作成"%>
 	</div>
-</div>	
-<% end %>	
+</div>
+<% end %>
