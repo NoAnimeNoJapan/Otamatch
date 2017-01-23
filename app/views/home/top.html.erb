@@ -1,7 +1,20 @@
-<h1>トップページだよ</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>オタマッチ</title>
+    <%= csrf_meta_tags %>
 
-<% if user_signed_in? %>
-	<li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-<% else %>
-	<li><%= link_to "ログイン", new_user_session_path %></li>
-<% end -%>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  		<ul>
+	      <% if user_signed_in? %>
+	        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+	      <% else %>
+	        <li><%= link_to "ログイン", new_user_session_path %></li>
+	      <% end -%>
+	    </ul>
+  </body>
+</html>
