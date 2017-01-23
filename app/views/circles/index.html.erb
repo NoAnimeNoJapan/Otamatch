@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>サークル一覧</h1>
 
 <%= search_form_for @search do |f|  %>
@@ -13,6 +14,14 @@
 <% @circles.each do |circle| %>
   <p>タイトル</p>
   <span><%= link_to circle.title, circle_path(circle) %></span>
+=======
+
+<h1>サークル一覧</h1>
+<% @circles.each do |circle| %>
+  <p>タイトル</p>
+  <span><%=link_to circle.title, circle_path(circle.id)  %></span>
+
+>>>>>>> feature/user-controlller
 <% end %>
 
 
