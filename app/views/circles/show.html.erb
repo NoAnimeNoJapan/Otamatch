@@ -2,3 +2,8 @@
 <p><%= @circle.title %></p>
 <h2>内容</h2>
 <p><%= @circle.body %></p>
+<% if @circle.joined_by? current_user %>
+    <%= link_to "退会", circle_circle_joins_path(@circle.id), method: :delete %>
+    <% else %>
+    <%= link_to "参加", circle_circle_joins_path(@circle.id), method: :post %>
+    <% end %>
