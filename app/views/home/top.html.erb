@@ -4,11 +4,14 @@
     <title>オタマッチ</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  	<header class="top-image">
+  		<%= image_tag 'logo_otamatch.png', class: "logo-top" %>
+  	</header>
   		<ul>
 	      <% if user_signed_in? %>
 	        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
