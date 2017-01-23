@@ -1,6 +1,6 @@
 
 <h1>サークル一覧</h1>
-<% @circles.each do |cirlce| %>
+<% @circles.each do |circle| %>
   <p>タイトル</p>
   <span><%=link_to circle.title, circle_path(circle.id)  %></span>
 
