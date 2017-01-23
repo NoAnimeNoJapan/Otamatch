@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
-  before_action :set_board, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  				:set_board, only: [:edit, :update, :destroy]
 
   def new
   	@board = Board.new

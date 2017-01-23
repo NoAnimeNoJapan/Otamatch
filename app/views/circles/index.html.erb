@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+<h1>サークル一覧</h1>
+
 <%= search_form_for @search do |f|  %>
 
 <%#= f.label :title_or_body_cont,"サークル名" %>
@@ -10,15 +11,8 @@
 <% end %>
 
 <% @circles.each do |circle| %>
-
-<%= circle.title %><br>
-
-=======
-<h1>サークル一覧</h1>
-<% @circles.each do |cirlce| %>
   <p>タイトル</p>
-  <span><%=link_to circle.title, circle_path(circle.id)  %></span>
->>>>>>> f9afa7c3c0155df792aca6dc3de63c4de5d2dbbf
+  <span><%= link_to circle.title, circle_path(circle) %></span>
 <% end %>
 
 
