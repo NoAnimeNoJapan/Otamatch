@@ -6,7 +6,6 @@
 }
 
 body {
-  padding-top: 25px;
   color: #364a4d;
 }
 
@@ -67,6 +66,23 @@ h2 {
 p {
   font-size: 16px;
   line-height: 40px;
+}
+
+/* Topページ =============================== */
+.top-image {
+  width: 100%;
+  height: 600px;
+  background-image: url("otaTop.png");
+  position: relative;
+}
+
+.logo-top {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 5px;
+  left: 40px;
+  border-radius: 30%;
 }
 
 /* ヘッダー ================================ */
@@ -131,4 +147,5 @@ footer .small {
   float: left;
   font-size: 14px;
 }
+
 
