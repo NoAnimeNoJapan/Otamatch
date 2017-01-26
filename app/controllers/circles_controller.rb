@@ -56,6 +56,10 @@ class CirclesController < ApplicationController
     end
 	end
 
+  def circle_join
+    @joins = Circle.find(params[:id]).circle_joins
+  end
+
   private
 
 	  def circle_params

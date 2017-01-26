@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  				:set_board, only: [:edit, :update, :destroy]
+   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+   before_action :set_board, only: [:edit, :update, :destroy]
 
   def new
   	@board = Board.new
@@ -49,7 +49,7 @@ class BoardsController < ApplicationController
   end
 
   def params_board
-  	params.require(:board).permit(:title, :editor, :body)
+  	params.require(:board).permit(:title, :editor, :body, :circle_id)
   end
 
 end

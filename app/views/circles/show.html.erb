@@ -9,11 +9,30 @@
 <% end %>
 
 <div>
-	<%= link_to "サークルメンバー一覧", circle_joins_user_path(current_user.id), method: :get %>
+	<%= link_to "サークルメンバー一覧", "/circle/#{@circle.id}/circle_joins", method: :get %>
 </div>
 <div>
 	<%= link_to "サークルイベント一覧", events_path, method: :get %>
 </div>
 <div>
-	<%= link_to "サークル掲示板一覧", boards_path, method: :get %>
+	<div class="wrapper wrapper__bg">
+	<div class="container">
+
+		<h1 class="title">
+			<% @circle.boards.each do |circle| %>
+				<%= link_to circle.title, circle_path(circle) %>
+			<% end -%>
+		</h1>
+
+		<%= link_to "スレッド新規作成", new_board_path %>
+
+		<hr>
+
+		<div class="panel">
+			<% @circle.boards.each do |board| %>
+				<%= link_to board.title, board_path(board) %> <br>
+			<% end -%>
+		</div>
+	</div>
+	</div>
 </div>
