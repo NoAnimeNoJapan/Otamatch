@@ -1,23 +1,50 @@
 <head>
 <style type="text/css">
-nav{
+.e-image{
   width: 150%;
-  height: 1000px;
+  height: 1050px;
   margin: 0 auto;
-  background-image:url(/images/event.2.jpg)
+  background-image:url(/images/events.2.png)
 }
 
-p{
-  font-size: 40px;
-  color: white;
+.e-box {
+  width: 600px;
+  height: 1050px;
+  margin: 0 0 0 200px;
+  background-color: white;
+  opacity: 0.7; 
 }
 
-span{
+.e-box p{
+  opacity: 1.0;
+}
+
+.e-span{
   font-size: 30px;
+  margin: 0 0 0 200px;
+  font-color: red;
 }
 
 .title{
+  margin: 0 0 0 100px;
   font-size: 20px;
+  color: blue;
+}
+
+.text{
+  margin: 0 0 0 160px;
+  font-size: 20px;
+  color: pink;
+  opacity: 1.0;
+}
+
+.bottun{
+  margin: 0 0 0 500px;
+}
+
+.e-name{
+  margin: 0 0 0 100px;
+  font-size: 40px;
   color: red;
 }
 
@@ -26,30 +53,41 @@ span{
 
 <p id="notice"><%= notice %></p>
 
+
+<nav class="e-image">
+<div class="e-box">
 <%= search_form_for(@search) do |f| %>
 
 <p class="title">
-<%= f.label :title_start,"タイトル" %>
+<%= f.label :title_start,"イベント名で検索はこっちだ！" %>
 <%= f.search_field :title_start %>
 </p>
 
-<%= f.label :bpdy_cont,"本文" %>
+<p class="text">
+<%= f.label :bpdy_cont,"内容で検索はこっちよ！" %>
 <%= f.search_field :body_cont %>
+</p>
 
 <%# 検索ボタン %>
+<p class="bottun">
 <%= f.submit %>
+</p>
 <% end %>
 
-<nav>
-<% @events.each do |event|%>
-     <p>イベント名</p>
 
-    <span>
+<% @events.each do |event|%>
+     <p class="e-name">イベント名</p>
+
+    <span class="e-span">
     <%= link_to event.title, "/events/#{event.id}" %>
     </span> 
 
-<% end %>    
+
+<% end %> 
+
+</div>
 </nav>
+<%= paginate(@events) %>
 
 
 
