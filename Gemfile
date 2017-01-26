@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'kaminari'
+
 gem 'ransack'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
