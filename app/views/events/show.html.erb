@@ -8,18 +8,33 @@
   background-image:url(/images/events.3.jpg)
 }
 
-.e-brance{
-  width: 300px
-  height: 200px;
-}
 
-h2{
+.e-title{
+  margin: 0 0 20px 280px;
   font-size: 30px;
+  color: green;
+  opacity: 1.0;
 }
 
-p{
-  font-size: 20px;
+.e-font{
+  margin: 0 0 20px 280px;
+  font-size: 20px	
 }
+
+.e-p{
+  margin: 0 0 20px 520px;	
+  font-size: 30px;	
+}
+
+.e-box{
+  width: 900px;
+  height: 790px;
+  margin: 0 0 0 0;
+  background-color: white;	
+  opacity: 0.6;
+
+}
+
 
 </style>
 </head>
@@ -27,13 +42,25 @@ p{
 
 <nav class="e-image">
 
-<nav class="e-brance"></nav>
 
 
-<h2 class="c-box">イベント名</h2>
- <p class="c-font"><%= @event.title  %></p>
+ <div class="e-box">
+  <h2 class="e-title">先輩！このイベント名は...</h2>
+   <p class="e-font"><%= @event.title  %></p>
+   <p class="e-p">です！</p>
 
-<h2 class="c-box">内容</h2>
- <p= class="c-font"><%= @event.body %></p>
- 
-</nav>
+  <h2 class="e-title">内容は...</h2>
+   <p= class="e-font"><%= @event.body %></p>
+  <p class="e-p">だそうです！<br>先輩！ぜひ参加して<br>みましょう！</p>
+
+  <p><%= @event.body %></p>
+<% if @event.joined_by? current_user %>
+    <%= link_to "退会", event_event_joins_path(@event.id), method: :delete %>
+    <% else %>
+    <%= link_to "参加", event_event_joins_path(@event.id), method: :post %>
+    <% end %>
+</div>
+
+
+
+ </nav>

@@ -10,14 +10,12 @@
 .e-box {
   width: 600px;
   height: 1050px;
-  margin: 0 0 0 200px;
+  margin: 0 0 0 400px;
   background-color: white;
   opacity: 0.7; 
 }
 
-.e-box p{
-  opacity: 1.0;
-}
+
 
 .e-span{
   font-size: 30px;
@@ -31,10 +29,20 @@
   color: blue;
 }
 
+.title2{
+  font-size: 20px;
+  opacity: 1.0;
+}
+
 .text{
   margin: 0 0 0 160px;
   font-size: 20px;
   color: pink;
+  opacity: 1.0;
+}
+
+.text2{
+  font-size: 20px;
   opacity: 1.0;
 }
 
@@ -44,8 +52,13 @@
 
 .e-name{
   margin: 0 0 0 100px;
-  font-size: 40px;
+  font-size: 30px;
   color: red;
+}
+
+.e-page{
+  font-size: 50px;
+  margin: 0 0 0 300px;
 }
 
 </style>
@@ -60,12 +73,12 @@
 
 <p class="title">
 <%= f.label :title_start,"イベント名で検索はこっちだ！" %>
-<%= f.search_field :title_start %>
+<%= f.search_field :title_start, class: "title2" %>
 </p>
 
 <p class="text">
 <%= f.label :bpdy_cont,"内容で検索はこっちよ！" %>
-<%= f.search_field :body_cont %>
+<%= f.search_field :body_cont, class: "text2" %>
 </p>
 
 <%# 検索ボタン %>
@@ -76,7 +89,7 @@
 
 
 <% @events.each do |event|%>
-     <p class="e-name">イベント名</p>
+     <p class="e-name">イベントの名は。</p>
 
     <span class="e-span">
     <%= link_to event.title, "/events/#{event.id}" %>
@@ -87,7 +100,9 @@
 
 </div>
 </nav>
-<%= paginate(@events) %>
+<p class="e-page">
+ <%= paginate(@events) %>
+</p>
 
 
 

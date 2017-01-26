@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
-
+    before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
+    before_action :correct_user, only: [:edit, :update]
 
 	def new
       @event = Event.new		
@@ -43,12 +45,23 @@ class EventsController < ApplicationController
 	    # end
   end
 
+  def favorites
+    @event = Event.find(params[:id])
+  end  
+
 
 
 private
    def set_event
      @event = Event.find(params[:id])
    end
+
+   def correct_user
+      event = Event.find(params[:id])
+      if current_user.id != event.user.id
+       redirect_to root_path
+      end
+    end
   
    def event_params  
      params.require(:event).permit(:title, :body, :image, :user_id) 

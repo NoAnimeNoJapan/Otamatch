@@ -23,4 +23,17 @@ Rails.application.routes.draw do
   end
   root 'circles#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+
+  resources :users, only: [:index, :show] do
+    get :event_joins, on: :member
+  end
+
+  resources :events do
+    resource :event_joins, only: [:create, :destroy]
+  end
+
+  root 'events#index'
+
 end
