@@ -1,3 +1,7 @@
+/*
+ *= require font-awesome
+ */
+
 /* 共通レイアウト ================================ */
 * {
   margin: 0;
@@ -85,6 +89,21 @@ p {
   top: 5px;
   left: 40px;
   border-radius: 30%;
+}
+
+.sns-logo {
+  width: 120px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+.fa {
+  font-size: 40px;
+  padding-right: 15px;
+  padding-left: 10px;
+  color: white;
 }
 
 /* ヘッダー ================================ */
