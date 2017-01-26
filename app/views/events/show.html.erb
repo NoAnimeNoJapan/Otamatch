@@ -2,10 +2,15 @@
 
 <head>
 <style type="text/css">
-nav{
+.e-image{
   width: 150%;
   height: 800px;
-  background-image:url(/images/event.3.jpg)
+  background-image:url(/images/events.3.jpg)
+}
+
+.e-brance{
+  width: 300px
+  height: 200px;
 }
 
 h2{
@@ -20,11 +25,15 @@ p{
 </head>
 
 
-<nav>
+<nav class="e-image">
 
-<h2>イベント名</h2>
- <p><%= @event.title  %></p>
-<h2>内容</h2>
- <p><%= @event.body %></p>
+<nav class="e-brance"></nav>
 
+
+<h2 class="c-box">イベント名</h2>
+ <p class="c-font"><%= @event.title  %></p>
+
+<h2 class="c-box">内容</h2>
+ <p= class="c-font"><%= @event.body %></p>
+ 
 </nav>
