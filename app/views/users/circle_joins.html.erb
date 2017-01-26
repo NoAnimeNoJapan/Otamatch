@@ -1,0 +1,4 @@
+<%= link_to circle_joins_user_path(current_user.id) do %>
+    <div>サークルメンバー一覧</div>
+    <div><%= current_user.circle_joins.count %></div>
+<% end %>     
