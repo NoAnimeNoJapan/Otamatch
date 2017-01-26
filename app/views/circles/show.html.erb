@@ -6,4 +6,14 @@
     <%= link_to "退会", circle_circle_joins_path(@circle.id), method: :delete %>
     <% else %>
     <%= link_to "参加", circle_circle_joins_path(@circle.id), method: :post %>
-    <% end %>
+<% end %>
+
+<div>
+	<%= link_to "サークルメンバー一覧", circle_joins_user_path(current_user.id), method: :get %>
+</div>
+<div>
+	<%= link_to "サークルイベント一覧", events_path, method: :get %>
+</div>
+<div>
+	<%= link_to "サークル掲示板一覧", boards_path, method: :get %>
+</div>
