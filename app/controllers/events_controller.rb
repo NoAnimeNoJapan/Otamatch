@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
+     
 
-
-	def new
+  def new
       @event = Event.new		
 	end
 
@@ -35,13 +35,13 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
+    
     @event.destroy
-       # respond_to do |format|
     redirect_to events_url
-        # notice: 'Event was successfully destroyed.' }
-        # format.json { hend :no_content } 
-	    # end
+     
   end
+
+
 
 
 
@@ -49,7 +49,7 @@ private
    def set_event
      @event = Event.find(params[:id])
    end
-  
+
    def event_params  
      params.require(:event).permit(:title, :body, :image, :user_id) 
    end
