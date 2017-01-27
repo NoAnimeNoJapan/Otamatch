@@ -19,20 +19,28 @@
 	  	  <%= link_to "", 'https://twitter.com/ayanobu411?lang=ja', class: "fa fa-twitter", aria: {hidden: true} %>
 	  	  <%= link_to "", 'https://www.facebook.com/kodera.dakara', class: "fa fa-facebook", aria: {hidden: true} %>
 	  	</div>
-	  	<div>
-	  	  <%= link_to "乳", 'http://doujin-eromanga.com/', class: "erovideo-net", aria: {hidden: true} %>
+	  	<div class="secret">
+	  	  <%= link_to "", 'http://kentaro-shimizu.com/lecture/fraud/complete.shtml', class: "erovideo-net", aria: {hidden: true} %>
+	  	</div>
+	  	<div class="login-btn">
+		  <% if user_signed_in? %>
+		  	<p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %><p>
+		  <% else %>
+		    <p><%= link_to "ログインはこちらから", new_user_session_path %></p>
+		  <% end -%>
 	  	</div>
   	</header>
 
   	<div class="container">
-  	  <ul>
-	    <% if user_signed_in? %>
-	      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-	    <% else %>
-	      <li><%= link_to "ログイン", new_user_session_path %></li>
-	    <% end -%>
-	  </ul>
-	</div>
 
+  	  <div class="info_entry_area">
+        <p class="color_white">受講生全員に <br class="visible-xs">"転職保証" が付いてくる</p>
+        <h2 class="cv_area_h2 color_white">今始めればきっとあなたの<br class="visible-xs">人生が変わる</h2>
+        <%= link_to "まずは無料カウンセリングへ", new_user_registration_path, class: "color_btn cv_area_a" %>
+      </div>
+
+	</div>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
   </body>
 </html>
