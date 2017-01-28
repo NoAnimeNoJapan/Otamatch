@@ -16,7 +16,7 @@ class CirclesController < ApplicationController
 	end
 
   def show
-    # @circles = Circle.find(params[:id])
+     @circle = Circle.find(params[:id])
   end
 
 	def index
