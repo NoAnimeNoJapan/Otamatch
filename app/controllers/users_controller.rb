@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@users = User.find_by_id(params[:id])
+  	@user = User.find_by_id(params[:id])
   end
 
   def circle_joins

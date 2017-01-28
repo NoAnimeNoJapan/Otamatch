@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #get 'users/show'
   #get 'user/:id/edit'
   #patch 'users/:id'
-  resources :users
+  # resources :users
   root 'home#top'
 
   resources :boards do
@@ -16,9 +16,11 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index] do
     get :circle_joins, on: :member
   end
+
+  get 'users/:id/show' => 'users#show', as: 'user'
 
   resources :circles do
     resource :circle_joins, only: [:create, :destroy]
