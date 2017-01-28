@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>オタマッチ</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+
+  <body>
+
+  	<header class="top-image">
+  	  <%= image_tag 'logo_otamatch.png', class: "logo-top" %>
+  	  	<div class="sns-logo">
+	  	  <%= link_to "", 'https://twitter.com/ayanobu411?lang=ja', class: "fa fa-twitter", aria: {hidden: true} %>
+	  	  <%= link_to "", 'https://www.facebook.com/kodera.dakara', class: "fa fa-facebook", aria: {hidden: true} %>
+	  	</div>
+	  	<div class="secret">
+	  	  <%= link_to "", 'http://kentaro-shimizu.com/lecture/fraud/complete.shtml', class: "erovideo-net", aria: {hidden: true} %>
+	  	</div>
+	  	<div class="login-btn">
+		  <% if user_signed_in? %>
+		  	<p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %><p>
+		  <% else %>
+		    <p><%= link_to "ログインはこちらから", new_user_session_path %></p>
+		  <% end -%>
+	  	</div>
+  	</header>
+
+  	<div class="info_entry_area">
+        <p class="color_white">登録者全員に <br class="visible-xs">"明るい未来" が待っている</p>
+        <h2 class="cv_area_h2 color_white">今始めればきっとあなたの<br class="visible-xs">人生が変わる</h2>
+        <%= link_to "新規会員登録はこちらから", new_user_registration_path, class: "color_btn" %>
+    </div>
+
+  	<div class="containers">
+
+  	  <div class="supplement">
+
+  	   <h2 class="section-heading"><span class="mission">“Break the Common Sense!”</span></h2>
+            <p class="section-tagline">常識をぶっ壊せ！</p>
+            <div class="section-desc">
+              <p>
+              オタマッチに集まるオタクたちは、純粋な心と熱いハートで非合理な常識を破壊していきます。<br>
+              私達と一緒に格差社会の腐った常識をぶっ壊し、<br>
+              新時代に見合った最高の常識を創りあげるオタクを待っています。<br>
+              オタクで最強のコミュニティを作りましょう！
+              </p>
+      		</div>
+      </div>
+
+      <div class="supplement sup">
+      	<h2 class="section-heading clearfix" aos="fade-up"><span class="mission yes">” オタマッチとは ”</span></h2>
+            <div class="section-desc" aos="fade-up">
+              <p>オタマッチとは、オタクの、オタクによる、オタクのためのソーシャルマッチングサイト。<br>気の合うオタク仲間を見つけて、みんなでワイワイ語りましょう。<br>
+              日本最大のオタクコミュニティで、最新情報もくまなくチェックすべし！</p>
+            </div>
+      </div>
+
+
+	</div>
+
+	<div class="container">
+	<footer>
+	  <div class="footer">
+	  	<p>Copyright©AllRightsReserved.</p>
+	  </div>
+	</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+  </body>
+</html>

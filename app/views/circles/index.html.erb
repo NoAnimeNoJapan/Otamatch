@@ -1,0 +1,52 @@
+<head>
+<style type="text/css">
+	.c-container{
+		padding-top: 40px;
+		padding-left: 40px;
+		width: 100%;
+		height: 800px;
+		background-image:url(/images/S__74752014.jpg)
+	}
+	.c-font{
+		font-size: 30px
+	}
+	.cfont{
+		font-size: 20px;
+		margin: 20px;
+	}
+	.c-box{
+		font-size: 20px;
+		margin-top: 20px;
+	}
+</style>	
+</head>
+
+
+<div class="c-container">
+<h1>サークル一覧</h1>
+
+<%= search_form_for @search do |f|  %>
+
+<%#= f.label :title_or_body_cont,"サークル名" %>
+
+<%= f.search_field :title_or_body_cont %>
+
+<%= f.submit %>
+
+<% end %>
+
+<% @circles.each do |circle| %>
+  <p class="c-font">タイトル</p>
+  <span class="cfont"><%= link_to circle.title, circle_path(circle) %></span>
+<% end -%>
+
+<div class="c-box"><%= paginate(@circles) %></div>
+
+</div>
+</div>
+
+
+
+
+
+

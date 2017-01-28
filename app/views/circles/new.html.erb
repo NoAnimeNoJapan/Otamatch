@@ -1,0 +1,40 @@
+<head>
+<style type="text/css">
+	.c-container{
+		padding: 20px 200px;
+		width: 100%;
+		height: 800px;
+		background-image:url(/images/S__74752014.jpg)
+
+	}
+	
+</style>	
+</head>
+
+
+
+<%= form_for(@circle) do |f| %>
+<div class="c-container">
+	<h1>サークル作成</h1>
+
+	<div class="c-box">
+		<p class="c-font">タイトル</p>
+
+		<%= f.text_field :title,:size=>"50" %>
+	</div>
+
+	<div class="c-box">
+		<p class="c-font">内容</p>
+		<%= f.text_area :body, :size=>"60x10" %>
+	</div>
+
+	<div class="c-box">
+		<p class="c-font">画像</p>
+		<%= f.file_field :image, :size=>"50" %>
+	</div>
+
+	<div class="c-box">
+		<%= f.submit value="作成"%>
+	</div>
+</div>
+<% end %>
