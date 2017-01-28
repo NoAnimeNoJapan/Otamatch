@@ -23,6 +23,7 @@ class CirclesController < ApplicationController
 
     @search = Circle.search(params[:q])
     @circles = @search.result(distinct:true)#search(params[:q]).page(params[:page]).per(10)
+    @circles = Circle.page(params[:page]).per(10).order(:id)
 	end
 
   def show

@@ -4,13 +4,40 @@
 		padding-top: 40px;
 		width: 100%;
 		height: 800px;
-		background-image:url(/images/events.1.jpg)}
-	.c-font{
-		font-size: 30px;
-		padding-left: 20px;
+
+		background-image:url(/images/events.1.jpg)
 	}
-</style>
+	.c-font{
+		font-color: black;
+	}
+	.c-text{
+		padding-left: 30px;
+	}
+</style>	
 </head>
+
+<div class="c-container">
+<h2>タイトル</h2>
+<p class="c-text"><%= @circle.title %></p>
+<h2>内容</h2>
+<p class="c-text"><%= @circle.body %></p>
+<% if @circle.joined_by? current_user %>
+    <%= link_to "退会", circle_circle_joins_path(@circle.id), method: :delete %>
+    <% else %>
+    <%= link_to "参加", circle_circle_joins_path(@circle.id), method: :post %>
+<% end %>
+
+<div>
+	<p class="c-font"><%= link_to "サークルメンバー一覧", "/circle/#{@circle.id}/circle_joins", method: :get %></p>
+</div>
+<div>
+	<p class="c-font"><%= link_to "サークルイベント一覧", events_path, method: :get %></p>
+</div>
+<div>
+	<div class="wrapper wrapper__bg">
+	<div class="container">
+
+
 
 
 <div class="c-container">
@@ -23,6 +50,9 @@
 	    <% else %>
 	    <%= link_to "参加", circle_circle_joins_path(@circle.id), method: :post %>
 	<% end %>
+
+
+		<p class="c-font"><%= link_to "スレッド新規作成", new_board_path %></p>
 
 	<div>
 		<%= link_to "サークルメンバー一覧", "/circle/#{@circle.id}/circle_joins", method: :get %>
@@ -40,7 +70,6 @@
 				<% end -%>
 			</h1>
 
-			<%= link_to "スレッド新規作成", new_board_path %>
 
 			<hr>
 
@@ -52,4 +81,4 @@
 		</div>
 		</div>
 	</div>
-</div>	
+
