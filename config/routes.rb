@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  #get 'users/index'
 
-  get 'users/show'
-
+  #get 'users/show'
+  #get 'user/:id/edit'
+  #patch 'users/:id'
+  resources :users
   root 'home#top'
 
   resources :boards do
