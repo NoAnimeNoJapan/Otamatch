@@ -3,5 +3,5 @@ class Board < ApplicationRecord
 	belongs_to :circle
 	validates :title, presence: true, length: { in: 4..120 }
 	validates :editor, presence: true, length: { in: 1..30 }
-	validates :supplement, presence: true, length: { in: 4..300 }
+	
 end

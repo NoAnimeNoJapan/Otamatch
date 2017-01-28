@@ -1,12 +1,7 @@
 <div class="wrapper wrapper__bg">
 	<div class="container">
 
-		<h1 class="title">
-			<% @circles.each do |circle| %>
-				<%= link_to circle.title, circle_path(circle) %>
-			<% end -%>
-		</h1>
-
+		
 		<%= link_to "スレッド新規作成", new_board_path %>
 
 		<hr>

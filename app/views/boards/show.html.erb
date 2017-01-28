@@ -5,7 +5,7 @@
 		<div class="board">
 			<h2 class="board--name"><%= @board.title %></h2>
 			<p><%= @board.editor %></p>
-			<p><%= @board.body %></p>
+			<p><%= @board.supplement %></p>
 		</div>
 
 		<%= link_to "スレッドを編集する", edit_board_path(@board) %>
@@ -21,7 +21,7 @@
 					<%= link_to "削除する", board_comment_path(@board, comment), method: :delete, data: { confirm: "本当に削除しますか？" } %><br>
 				</div>
 				<div class="comment-body">
-					<%= comment.content%>
+					<%= comment.body %>
 				</div>
 			</div>
 			<% end -%>
@@ -29,7 +29,7 @@
 		<hr>
 		<%= form_for @comment, url: board_comments_path(@board, @comment) do |f| %>
 			名前： <%= f.text_field :name %> <br>
-			コメント： <%= f.text_field :content %><br>
+			コメント： <%= f.text_field :body %><br>
 			<%= f.submit "レス投稿" %>
 		<% end -%>
 	</div>

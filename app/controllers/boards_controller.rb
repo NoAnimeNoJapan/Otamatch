@@ -16,8 +16,8 @@ class BoardsController < ApplicationController
   end
 
   def index
-  	@board = Board.all
-  	@circle = Circle.find(params[:id])
+  	@boards = Board.all
+  	@circles = Circle.find(params[:id])
   end
 
   def show
