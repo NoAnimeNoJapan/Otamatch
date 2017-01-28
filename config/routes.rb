@@ -24,5 +24,20 @@ Rails.application.routes.draw do
   get 'circle/:id/circle_joins' => 'circles#circle_join'
   root 'circles#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+
+  resources :users, only: [:index, :show] do
+    get :event_joins, on: :member
+  end
+
+  resources :events do
+    resource :event_joins, only: [:create, :destroy]
+  end
+
+  root 'events#index'
+
+   delete '/events/:id/' => 'events#destroy', as: 'destroy_event'
+
 end
 

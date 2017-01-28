@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :circles
   has_many :events
   has_many :comments
+  has_many :event_joins
 end
 
 
