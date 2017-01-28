@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20170127141550) do
     t.string   "name"
     t.text     "body"
     t.integer  "board_id"
+
+  create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
