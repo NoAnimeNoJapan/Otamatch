@@ -27,8 +27,8 @@ class EventsController < ApplicationController
 	def index
     # @events = Event.all
     @search = Event.search(params[:q])
-    @events = @search.result(distinct:true)
-    @events = Event.page(params[:page]).per(10).order(:id)
+    @events = @search.result(distinct: true)
+    @events = @events.page(params[:page]).per(10).order(:id)
 	end
 
 	def update

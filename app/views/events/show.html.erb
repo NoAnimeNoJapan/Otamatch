@@ -3,14 +3,14 @@
 <head>
 <style type="text/css">
 .e-image{
-  width: 150%;
+  width: 100%;
   height: 900px;
   background-image:url(/images/events.3.jpg)
 }
 
 
 .e-title{
-  margin: 0 0 20px 0;
+  margin: 25px 0 20px 0;
   font-size: 30px;
   color: green;
   opacity: 1.0;
@@ -39,7 +39,7 @@
   margin: 0 0 0 300px;
   background-color: white;	
   opacity: 0.6;
-
+  z-index: 1;
 }
 
 .e-destroy{
@@ -47,6 +47,12 @@
   height: 30px;
   background-color: red; 
   margin: 40px 0 0 360px;
+}
+
+.e-join{
+  width: 160px;
+  height: 30px;
+  background-color: red; 
 }
 
 
@@ -76,12 +82,12 @@
     <%= link_to "やっぱりやめよう", event_event_joins_path(@event.id), method: :delete %>
     <% else %>
     <%= link_to "よし！参加しよう！", event_event_joins_path(@event.id), method: :post %>
-    <% end %>
+    <% end %>  
   <div class="e-destroy">
     <%= link_to "削除されますか？", destroy_event_path(@event.id), method: :delete, class: "btn destroy-btn", "data-confirm" => "宝具で消しとばします！エクス..カリバァァー！(本当に削除しますか？)" %>
   </div>
-
 </div>
+  
 
 
  </nav>

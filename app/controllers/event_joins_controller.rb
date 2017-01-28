@@ -11,7 +11,7 @@ class EventJoinsController < ApplicationController
         if @event_join.save
           redirect_to events_url, notice: "参加したんだって？楽しくやれよ！"
         else
-          redirect_to events_url, alert: "参加できない？それはログインしてないからさ！"
+          redirect_to events_url, alert: "参加できない？それはログインしてないからだぜ！"
         end
 
 
@@ -21,7 +21,7 @@ class EventJoinsController < ApplicationController
 		@event = Event.find(params[:event_id])
 		@event_join = current_user.event_joins.find_by!(event_id: params[:event_id])
         @event_join.destroy
-        redirect_to events_url, notice: "参加...解除したぜ.."
+        redirect_to events_url, notice: "やめるのか？後悔するなよぉ！"
 			
 	end	
 
