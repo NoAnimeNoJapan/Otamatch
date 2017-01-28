@@ -1,0 +1,6 @@
+    <div>サークルメンバー一覧</div>
+    <div>
+    	<% @joins.each do |join| %>
+    	<%= link_to join.user.name,user_path(join.user) %>
+    	<% end %>
+    </div>

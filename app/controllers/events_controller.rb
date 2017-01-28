@@ -37,18 +37,16 @@ class EventsController < ApplicationController
 	end
 
 	def destroy
-    @event = Event.find(params[:id])
     @event.destroy
-       # respond_to do |format|
     redirect_to events_url
-        # notice: 'Event was successfully destroyed.' }
-        # format.json { hend :no_content } 
-	    # end
+     
   end
 
   def favorites
     @event = Event.find(params[:id])
   end  
+
+
 
 
 

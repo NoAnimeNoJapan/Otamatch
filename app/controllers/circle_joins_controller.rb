@@ -3,13 +3,9 @@ class CircleJoinsController < ApplicationController
 
 	def create
         @circle = Circle.find(params[:circle_id])
-        @circle_join = current_user.circle_joins.build(circle_id: @circle)
-
-        if @circle_join.save
-          redirect_to circles_url, notice: "参加しました"
-        else
-          redirect_to circles_url, alert: "参加できません"
-        end
+        @circle_join = current_user.circle_joins.build(circle_id: @circle.id)
+        @circle_join.save
+        redirect_to @circle  
     end
 
     def destroy

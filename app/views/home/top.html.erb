@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>オタマッチ</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
+
   <body>
+
   	<header class="top-image">
-  		<%= image_tag 'logo_otamatch.png', class: "logo-top" %>
+  	  <%= image_tag 'logo_otamatch.png', class: "logo-top" %>
+  	  	<div class="sns-logo">
+	  	  <%= link_to "", 'https://twitter.com/ayanobu411?lang=ja', class: "fa fa-twitter", aria: {hidden: true} %>
+	  	  <%= link_to "", 'https://www.facebook.com/kodera.dakara', class: "fa fa-facebook", aria: {hidden: true} %>
+	  	</div>
   	</header>
-  		<ul>
-	      <% if user_signed_in? %>
-	        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-	      <% else %>
-	        <li><%= link_to "ログイン", new_user_session_path %></li>
-	      <% end -%>
-	    </ul>
+
+  	<div class="container">
+  	  <ul>
+	    <% if user_signed_in? %>
+	      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+	    <% else %>
+	      <li><%= link_to "ログイン", new_user_session_path %></li>
+	    <% end -%>
+	  </ul>
+	</div>
+
   </body>
 </html>
