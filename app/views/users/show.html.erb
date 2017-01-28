@@ -1,2 +1,53 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<head>
+<style type="text/css">
+	.u-container{
+		padding-top: 40px;
+		padding-left: 40px;
+		width: 100%;
+		height: 100%;
+		background-image:url(/images/events.1.jpg)
+	}
+	.ufont{
+		font-size: 30px;
+	}
+	.u-font{
+		padding-left: 20px;
+		font-size: 20px;
+	}
+	.u-box{
+		margin-top: 20px;
+	}	
+</style>	
+</head>
+
+<div class="u-container">
+	<div class="u-box">
+	<h2 class="ufont">ユーザーネーム</h2>
+	<p class="u-font"><%= @user.name %></p>
+	</div>
+
+	<div class="u-box">
+	<h2 class="ufont">アイコン</h2>
+	<p class="u-font"><%= user.image %></p>
+	</div>
+
+	<div class="u-box">
+	<h2 class="ufont">年齢</h2>
+	<p class="u-font"><%= @user.age %></p>
+	</div>
+
+	<div class="u-box">
+	<h2 class="ufont">性別</h2>
+	<p class="u-font"><%= @user.gender %></p>
+	</div>
+
+	<div class="u-box">
+	<h2 class="ufont">自己紹介</h2>
+	<p class="u-font"><%= @user.introduction %></p>
+	</div>
+</div>
+<div>
+	<%= link_to "変更", edit,user_path(@user.id) %>
+	<%= link_to "サークル一覧", circles_path,method: :get %>
+	<%= link_to "サークル作成", new_circles_path,method: :get %>
+</div>
