@@ -9,17 +9,15 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+// = require bootstrap
 // = require jquery
 // = require jquery.turbolinks
 // = require jquery_ujs
-= require bootstrap/sass
-// = require turbolinks
 // = require_tree .
 
 $(function(){
 	var $button = document.querySelector('.login-btn');
-	$button.addEventListener('click', function() {
+	$button.addEventListener('mouseover', function() {
 	  	var duration = 0.3,
 	      	delay = 0.08;
 	  	TweenMax.to($button, duration, {scaleY: 1.6, ease: Expo.easeOut});
