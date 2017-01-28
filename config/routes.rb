@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  get 'users/index'
+  #get 'users/index'
 
-  get 'users/show'
-
+  #get 'users/show'
+  #get 'user/:id/edit'
+  #patch 'users/:id'
+  # resources :users
   root 'home#top'
 
   resources :boards do
@@ -14,9 +16,11 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index] do
     get :circle_joins, on: :member
   end
+
+  get 'users/:id/show' => 'users#show', as: 'user'
 
   resources :circles do
     resource :circle_joins, only: [:create, :destroy]
@@ -24,4 +28,20 @@ Rails.application.routes.draw do
   get 'circle/:id/circle_joins' => 'circles#circle_join'
   root 'circles#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+
+  resources :users, only: [:index, :show] do
+    get :event_joins, on: :member
+  end
+
+  resources :events do
+    resource :event_joins, only: [:create, :destroy]
+  end
+
+  root 'events#index'
+
+   delete '/events/:id/' => 'events#destroy', as: 'destroy_event'
+
 end
+

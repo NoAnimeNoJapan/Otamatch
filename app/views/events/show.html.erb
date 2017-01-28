@@ -3,23 +3,58 @@
 <head>
 <style type="text/css">
 .e-image{
-  width: 150%;
-  height: 800px;
+  width: 100%;
+  height: 900px;
   background-image:url(/images/events.3.jpg)
 }
 
-.e-brance{
-  width: 300px
-  height: 200px;
-}
 
-h2{
+.e-title{
+  margin: 25px 0 20px 0;
   font-size: 30px;
+  color: green;
+  opacity: 1.0;
 }
 
-p{
-  font-size: 20px;
+.e-font{
+  margin: 0 0 20px 15px;
+  font-size: 20px	
 }
+
+.e-p{
+  margin: 20px 0 20px 300px;	
+  font-size: 30px;
+  color: green;	
+}
+
+.e-p2{
+  margin: 40px 0 20px 300px;  
+  font-size: 30px;
+  color: green; 
+}
+
+.e-box{
+  width: 550px;
+  height: 900px;
+  margin: 0 0 0 300px;
+  background-color: white;	
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.e-destroy{
+  width: 160px;
+  height: 30px;
+  background-color: red; 
+  margin: 40px 0 0 360px;
+}
+
+.e-join{
+  width: 160px;
+  height: 30px;
+  background-color: red; 
+}
+
 
 </style>
 </head>
@@ -27,13 +62,32 @@ p{
 
 <nav class="e-image">
 
-<nav class="e-brance"></nav>
 
 
-<h2 class="c-box">イベント名</h2>
- <p class="c-font"><%= @event.title  %></p>
+ <div class="e-box">
+  <h2 class="e-title">先輩！このイベント名は...</h2>
+   <p class="e-font"><%= @event.title %></p>
+   <p class="e-p">です！</p>
 
-<h2 class="c-box">内容</h2>
- <p= class="c-font"><%= @event.body %></p>
- 
-</nav>
+  <h2 class="e-title">内容は...</h2>
+   <p= class="e-font"><%= @event.body %></p>
+  <p class="e-p2">だそうです！<br>先輩！参加して<br>みましょう！</p>
+
+  <h2 class="e-title">主催者は...</h2>
+  <p class="e-font"><%= @event.name %></p>
+  <p class="e-p">さんです！</p>
+
+  
+<% if @event.joined_by? current_user %>
+    <%= link_to "やっぱりやめよう", event_event_joins_path(@event.id), method: :delete %>
+    <% else %>
+    <%= link_to "よし！参加しよう！", event_event_joins_path(@event.id), method: :post %>
+    <% end %>  
+  <div class="e-destroy">
+    <%= link_to "削除されますか？", destroy_event_path(@event.id), method: :delete, class: "btn destroy-btn", "data-confirm" => "宝具で消しとばします！エクス..カリバァァー！(本当に削除しますか？)" %>
+  </div>
+</div>
+  
+
+
+ </nav>

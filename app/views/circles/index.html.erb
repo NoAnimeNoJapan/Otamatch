@@ -4,7 +4,7 @@
 		padding-top: 40px;
 		padding-left: 40px;
 		width: 100%;
-		height: 100%;
+		height: 800px;
 		background-image:url(/images/events.1.jpg)
 	}
 	.c-font{
@@ -20,8 +20,11 @@
 	}
 </style>	
 </head>
+
 <div class="c-container">
 <div>
+
+<div class="c-container">
 <h1>サークル一覧</h1>
 
 <%= search_form_for @search do |f|  %>
@@ -38,10 +41,12 @@
   <p class="c-font">タイトル</p>
   <span class="cfont"><%= link_to circle.title, circle_path(circle) %></span>
 <% end -%>
+
 <div class="c-box"><%= paginate(@circles) %></div>
 
 </div>
 </div>
+
 
 
 

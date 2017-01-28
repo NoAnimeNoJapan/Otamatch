@@ -12,7 +12,7 @@
     <header class="navbar" id="header">
       <div class="container">
         <div class="sub-ttl">オタクのためのソーシャルマッチングサイト</div>
-	    <div id="logo">オタマッチ</div>
+	    <div id="logo"><%= link_to "オタマッチ", root_path %></div>
 	    <ul class="header-right">
 	      <li><%= link_to "トップ", root_path %></li>
 	      <li><%= link_to "会員登録", new_user_registration_path %></li>
@@ -25,13 +25,14 @@
 	  </div>
 	</header>
 	<div class="wrapper">
-      <p class="alert alert-success">
+	<%# if  %>
+      <!-- <p class="alert alert-success"> -->
         <%= notice %>
-      </p>
-      <p class="alert alert-danger">
+    <%# else %>
+      <!-- <p class="alert alert-danger"> -->
         <%= alert %>
-      </p>
       <%= yield %>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </body>
 </html>
