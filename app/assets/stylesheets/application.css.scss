@@ -291,6 +291,59 @@ p {
   margin: auto;
 }
 
+/* board ================================== */
+.wrapper__bg {
+  background-image: asset-url("tile.gif");
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.panel {
+  background-color: #bfb;
+  padding: 10px;
+}
+
+.board {
+  .board--name {
+    color: red;
+    font-size: larger;
+    font-weight: normal;
+  }
+}
+
+.title {
+  margin: 0 0 20px 0;
+  padding-top: 20px;
+  font-family: arial, sans-serif;
+}
+
+.comment {
+  margin: 20px 0;
+
+  .comment--heading {
+  &:hover {
+    background-color: #fee;
+  }
+  }
+
+  .comment-body {
+    padding: 0 0 0 40px;
+  }
+}
+
+.form {
+  .form--label {
+    width: 100px;
+  }
+
+  .form--input {
+    margin-bottom: 10px;
+  }
+}
+
 /* フッター ================================ */
 .footer {
   width: 100%;
