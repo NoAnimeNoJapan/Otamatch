@@ -39,30 +39,8 @@
 
 
 
-
-<div class="c-container">
-	<h2>タイトル</h2>
-	<p class="c-font"><%= @circle.title %></p>
-	<h2>内容</h2>
-	<p><%= @circle.body %></p>
-	<% if @circle.joined_by? current_user %>
-	    <%= link_to "退会", circle_circle_joins_path(@circle.id), method: :delete %>
-	    <% else %>
-	    <%= link_to "参加", circle_circle_joins_path(@circle.id), method: :post %>
-	<% end %>
-
-
-		<p class="c-font"><%= link_to "スレッド新規作成", new_board_path %></p>
-
-	<div>
-		<%= link_to "サークルメンバー一覧", "/circle/#{@circle.id}/circle_joins", method: :get %>
-	</div>
-	<div>
-		<%= link_to "サークルイベント一覧", events_path, method: :get %>
-	</div>
-	<div>
-		<div class="wrapper wrapper__bg">
-		<div class="container">
+<!--  -->
+	
 
 			<h1 class="title">
 				<% @circle.boards.each do |circle| %>
