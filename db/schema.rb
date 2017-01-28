@@ -21,14 +21,16 @@ ActiveRecord::Schema.define(version: 20170127141550) do
     t.integer  "circle_id"
   end
 
-  create_table "circle_join", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "circle_id"
+  create_table "circels", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "circle_joins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "circle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
