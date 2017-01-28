@@ -2,29 +2,29 @@
 <style type="text/css">
 .e-image{
   width: 150%;
-  height: 1050px;
+  height: 1100px;
   margin: 0 auto;
   background-image:url(/images/events.2.png)
 }
 
 .e-box {
-  width: 600px;
-  height: 1050px;
+  width: 700px;
+  height: 1100px;
   margin: 0 0 0 400px;
-  background-color: white;
+  background-color: #DCDCDC;
   opacity: 0.7; 
 }
 
 
 
 .e-span{
-  font-size: 30px;
-  margin: 0 0 0 200px;
+  font-size: 35px;
+  margin: 0 0 0 100px;
   font-color: red;
 }
 
 .title{
-  margin: 0 0 0 100px;
+  margin: 0 0 0 120px;
   font-size: 20px;
   color: blue;
 }
@@ -35,9 +35,9 @@
 }
 
 .text{
-  margin: 0 0 0 160px;
+  margin: 0 0 0 180px;
   font-size: 20px;
-  color: pink;
+  color: blue;
   opacity: 1.0;
 }
 
@@ -46,19 +46,33 @@
   opacity: 1.0;
 }
 
-.bottun{
+.e-button{
   margin: 0 0 0 500px;
+  width:140px;
+  color: red;
+  background-image:url(/images/event.4.jpg) ;
+  background-size: 100%;
+  padding:10px;
+  font-size: 30px;
+  opacity: 1.0; 
 }
 
 .e-name{
-  margin: 0 0 0 100px;
-  font-size: 30px;
+  margin: 0 0 0 50px;
+  font-size: 20px;
   color: red;
 }
 
 .e-page{
   font-size: 50px;
   margin: 0 0 0 300px;
+}
+
+.p-box{
+  width: 400px;
+  height: 20px;
+  margin: 0 0 0 400px;
+  font-size: 20px;
 }
 
 </style>
@@ -72,24 +86,24 @@
 <%= search_form_for(@search) do |f| %>
 
 <p class="title">
-<%= f.label :title_start,"イベント名で検索はこっちだ！" %>
+<%= f.label :title_start,"イベント名で探せぇ！" %>
 <%= f.search_field :title_start, class: "title2" %>
 </p>
 
 <p class="text">
-<%= f.label :bpdy_cont,"内容で検索はこっちよ！" %>
+<%= f.label :bpdy_cont,"内容で探せぇ！" %>
 <%= f.search_field :body_cont, class: "text2" %>
 </p>
 
 <%# 検索ボタン %>
-<p class="bottun">
-<%= f.submit %>
-</p>
+
+<%= f.submit value="検索ゥ！", class: "e-button" %>
+
 <% end %>
 
 
 <% @events.each do |event|%>
-     <p class="e-name">イベントの名は。</p>
+     <p class="e-name">開催されしイベント名</p>
 
     <span class="e-span">
     <%= link_to event.title, "/events/#{event.id}" %>
@@ -100,9 +114,9 @@
 
 </div>
 </nav>
-<p class="e-page">
+<div class="p-box">
  <%= paginate(@events) %>
-</p>
+</div>
 
 
 

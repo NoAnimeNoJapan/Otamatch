@@ -36,4 +36,6 @@ Rails.application.routes.draw do
 
   root 'events#index'
 
+   delete '/events/:id/' => 'events#destroy', as: 'destroy_event'
+
 end

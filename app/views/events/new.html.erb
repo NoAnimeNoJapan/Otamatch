@@ -1,8 +1,8 @@
 <head>
 <style type="text/css">
 nav{
-	width: 140%;
-	height: 800px;
+	width: 150%;
+	height: 900px;
 	background-image:url(/images/events.1.jpg)
 }
 
@@ -23,6 +23,7 @@ nav{
 }
 
 .e-text2{
+
 	font-size: 20px;
 	opacity: 0.7;
 }
@@ -31,9 +32,22 @@ nav{
 	font-size: 30px;
 }
 
+.e-botton{
+  width:300px;
+  color: red;
+  background-color: #708090;
+  padding:10px;
+  font-size: 40px;
+  opacity: 0.8;
+}
 
-
-
+.e-comment{
+  width: 400px;
+  height: 100px;
+  margin: 0 0 0 750px;
+  font-size: 30px;
+  color: red;	
+}
 
 
 </style>
@@ -48,19 +62,21 @@ nav{
   <h1 class="event">イベント作成</h1>
 
 	<div class="e-box">
-		<p class="e-title">イベント名</p>
-		<%= f.text_field :title, class: "e-text2" %>
+		<p class="e-title">作戦名(イベント名)</p>
+		<%= f.text_field :title, :size=>"50", class: "e-text2" %>
 	</div>
 
 	<div class="e-box">
-		<p class="e-text">内容</p>
-		<%= f.text_area :body, class: "e-text2" %>
+		<p class="e-text">作戦内容</p>
+		<%= f.text_area :body, :size=>"60x10", class: "e-text2" %>
 	</div>
 
 	<div class="e-box">
-		<p class="e-font">製作者</p>
-		<%= f.text_field :title, class: "e-text2" %> 
+		<p class="e-font">計画発案者</p>
+		<%= f.text_field :name, :size=>"40", class: "e-text2" %> 
 	</div>
+
+	<div class="e-comment"></div>
 
 
 
