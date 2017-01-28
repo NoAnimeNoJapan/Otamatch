@@ -20,8 +20,8 @@ class EventJoinsController < ApplicationController
 	def destroy
 		@event = Event.find(params[:event_id])
 		@event_join = current_user.event_joins.find_by!(event_id: params[:event_id])
-        @event_join.destroy
-        redirect_to events_url, notice: "やめるのか？後悔するなよぉ！"
+     @event_join.destroy
+     redirect_to events_url, notice: "やめるのか？後悔するなよぉ！"
 			
 	end	
 

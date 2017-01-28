@@ -1,13 +1,13 @@
 <head>
 <style type="text/css">
-nav{
+.image-e-box{
 	width: 100%;
 	height: 900px;
 	background-image:url(/images/events.1.jpg)
 }
 
 .event{
-	margin: 25px 0 30px 300px;
+	margin: 0 0 30px 300px;
 }
 
 .e-box{
@@ -37,28 +37,39 @@ nav{
   width:300px;
   color: red;
   background-color: #708090;
-  margin: 100px 0 0 0;
   padding:10px;
+  margin: 80px 0 0 0;
   font-size: 40px;
   opacity: 0.8;
   z-index: 1;
 }
 
 .e-comment{
-	
+  color: red;
+  font-size: 25px;
+  margin: 0 0 0 800px;
 }
 
+.e-comment2{
+  width: 300px;
+  height: 30px;	
+  margin: 0 0 0 450px;
+  font-size: 25px;
+  color: red;
+} 
 
 </style>
 </head>
 
 <!-- <img src="/public/images/Otamatch.png" /> -->
-<nav>
+<nav class="image-e-box">
 <!-- <div style="background-image:url(/images/Otamatch.event.1.png")" /> -->
 
 <%= form_for(@event) do |f| %>
  <div class="c-container"> 
   <h1 class="event">イベント作成</h1>
+
+    <p class="e-comment">\俺は..！イベントを作る！/</p>
 
 	<div class="e-box">
 		<p class="e-title">作戦名(イベント名)</p>
@@ -70,12 +81,12 @@ nav{
 		<%= f.text_area :body, :size=>"60x10", class: "e-text2" %>
 	</div>
 
+	<p class="e-comment2">\私も..作りたい！/</p>
+
 	<div class="e-box">
 		<p class="e-font">計画発案者</p>
 		<%= f.text_field :name, :size=>"40", class: "e-text2" %> 
 	</div>
-
-	<div class="e-comment"></div>
 
 
 
